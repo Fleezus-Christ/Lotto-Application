@@ -14,28 +14,29 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/WpfTutorialSamples;component/Images/bullet_blue.png" />
-                            <TextBlock Text="Tab 1" Foreground="Blue" />
+                            <!--<Image Source="/WpfTutorialSamples;component/Images/bullet_blue.png" />-->
+                            <TextBlock Text="EuroMillions" Foreground="Goldenrod" />
                         </StackPanel>
                     </TabItem.Header>
-                    <view:FirstView />
+                    <view:EuromillionsView />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/WpfTutorialSamples;component/Images/bullet_red.png" />
-                            <TextBlock Text="Tab 2" Foreground="Red" />
+                            <!--<Image Source="/WpfTutorialSamples;component/Images/bullet_red.png" />-->
+                            <TextBlock Text="Lotto" Foreground="Red" />
                         </StackPanel>
                     </TabItem.Header>
-                    <view:SecondView />
+                    <view:LottoView />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/WpfTutorialSamples;component/Images/bullet_green.png" />
-                            <TextBlock Text="Tab 3" Foreground="Green" />
+                            <!--<Image Source="/WpfTutorialSamples;component/Images/bullet_green.png" />-->
+                            <TextBlock Text="ThunderBall" Foreground="Purple" />
                         </StackPanel>
                     </TabItem.Header>
+                    <view:LottoView />
                 </TabItem>
             </TabControl>
         </Grid>

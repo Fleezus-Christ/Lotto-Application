@@ -3,11 +3,11 @@
 namespace LottoGenerator.View
 {
     /// <summary>
-    /// Interaction logic for SecondView.xaml
+    /// Interaction logic for LottoView.xaml
     /// </summary>
-    public partial class SecondView : UserControl
+    public partial class LottoView : UserControl
     {
-        public SecondView()
+        public LottoView()
         {
             InitializeComponent();
         }
