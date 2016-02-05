@@ -37,9 +37,16 @@
                     </Style>
                 </StackPanel.Resources>
                 <TextBlock FontWeight="Bold" Margin="0,0,0,10">Menu</TextBlock>
-                <Button Name="GenerateButton" Click="GenerateButton_OnClick">Generate</Button>
+                <Button Name="GenerateButton1" Click="GenerateButton1_OnClick">Generate 100</Button>
+                <Button Name="GenerateButton2" Click="GenerateButton2_OnClick">Generate 1000</Button>
+                <Button Name="GenerateButton3" Click="GenerateButton3_OnClick">Generate 10000</Button>
+                <Button Name="GenerateButton4" Click="GenerateButton4_OnClick">Generate 100000</Button>
+                <Button Name="GenerateButton5" Click="GenerateButton5_OnClick">Generate 1000000</Button>
                 <Button Name="ProcessButton" Click="ProcessButton_OnClick">Process</Button>
                 <Button Name="ClearButton" Click="ClearButton_OnClick">Clear</Button>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom">
+                <TextBlock Text="Sharif Uddin [2016]" FontSize="8" HorizontalAlignment="Center" />
             </StackPanel>
             <ListBox Name="LottoList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" SelectionChanged="LottoList_OnSelectionChanged">
                 <ListBox.ItemTemplate>

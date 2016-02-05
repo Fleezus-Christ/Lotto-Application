@@ -22,9 +22,33 @@ namespace LottoGenerator.View
             InitializeComponent();
         }
 
-        private void GenerateButton_OnClick(object sender, RoutedEventArgs e)
+        private void GenerateButton1_OnClick(object sender, RoutedEventArgs e)
         {
             GeneratedPickList = GeneratedPick(100);
+            LottoList.ItemsSource = GeneratedPickList;
+        }
+
+        private void GenerateButton2_OnClick(object sender, RoutedEventArgs e)
+        {
+            GeneratedPickList = GeneratedPick(1000);
+            LottoList.ItemsSource = GeneratedPickList;
+        }
+
+        private void GenerateButton3_OnClick(object sender, RoutedEventArgs e)
+        {
+            GeneratedPickList = GeneratedPick(10000);
+            LottoList.ItemsSource = GeneratedPickList;
+        }
+
+        private void GenerateButton4_OnClick(object sender, RoutedEventArgs e)
+        {
+            GeneratedPickList = GeneratedPick(10000);
+            LottoList.ItemsSource = GeneratedPickList;
+        }
+
+        private void GenerateButton5_OnClick(object sender, RoutedEventArgs e)
+        {
+            GeneratedPickList = GeneratedPick(100000);
             LottoList.ItemsSource = GeneratedPickList;
         }
 
