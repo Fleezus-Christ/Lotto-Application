@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\EuromillionViewModel.cs" />
     <Compile Include="View\EuromillionsView.xaml.cs">
       <DependentUpon>EuromillionsView.xaml</DependentUpon>
     </Compile>
@@ -109,7 +110,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="Resource\img\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
