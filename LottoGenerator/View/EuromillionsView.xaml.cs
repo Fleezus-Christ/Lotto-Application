@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,7 +15,7 @@ namespace LottoGenerator.View
     /// </summary>
     public partial class EuromillionsView : UserControl
     {
-        private List<EuromillionViewModel> _generatedPick;
+        public List<EuromillionViewModel> GeneratedPickList;
 
         public EuromillionsView()
         {
@@ -23,26 +24,25 @@ namespace LottoGenerator.View
 
         private void GenerateButton_OnClick(object sender, RoutedEventArgs e)
         {
-            _generatedPick = GeneratedPick(10);
-            LottoList.ItemsSource = _generatedPick;
+            GeneratedPickList = GeneratedPick(3);
+            LottoList.ItemsSource = GeneratedPickList;
         }
 
         private static EuromillionViewModel GeneratePick()
         {
             var numbers = Enumerable.Range(1, 50).ToList();
             var luckyNumbers = Enumerable.Range(1, 11).ToList();
-            var random = new Random();
             var index = -1;
 
             for (var i = 0; i < 45; i++)
             {
-                index = random.Next(numbers.Count);
+                index = RandomNumber(0, numbers.Count);
                 numbers.RemoveAt(index);
             }
 
             for (var i = 0; i < 9; i++)
             {
-                index = random.Next(luckyNumbers.Count);
+                index = RandomNumber(0, luckyNumbers.Count);
                 luckyNumbers.RemoveAt(index);
             }
 
@@ -78,6 +78,15 @@ namespace LottoGenerator.View
         {
             var regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private static int RandomNumber(int min, int max)
+        {
+            var rng = new RNGCryptoServiceProvider();
+            var buffer = new byte[8];
+            rng.GetBytes(buffer);
+            var result = BitConverter.ToInt32(buffer, 0);
+            return new Random(result).Next(min, max);
         }
     }
 }

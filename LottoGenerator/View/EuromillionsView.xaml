@@ -40,7 +40,7 @@
                 <Button Name="GenerateButton" Click="GenerateButton_OnClick">Generate</Button>
                 <Button Name="ProcessButton" Click="ProcessButton_OnClick">Process</Button>
             </StackPanel>
-            <ListBox Name="LottoList" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" SelectionMode="Extended" SelectionChanged="LottoList_OnSelectionChanged">
+            <ListBox Name="LottoList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" SelectionChanged="LottoList_OnSelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,2">
