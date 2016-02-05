@@ -61,7 +61,10 @@
                             <TextBlock Grid.Column="4" Text="{Binding NumberList[4]}" Margin="10, 0"/>
                             <TextBlock Grid.Column="5" Text="{Binding NumberLuckyList[0]}" Margin="10, 0"/>
                             <TextBlock Grid.Column="6" Text="{Binding NumberLuckyList[1]}" Margin="10, 0"/>
-                            <ProgressBar Grid.Column="7" Minimum="0" Maximum="100" Value="{Binding MatchCount}" Margin="20, 0" />
+                            <Grid Grid.Column="7">
+                                <ProgressBar Minimum="0" Maximum="5" Value="{Binding MatchCount, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="20, 0" />
+                                <TextBlock Text="{Binding MatchCount, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0} Matches}" HorizontalAlignment="Center" />
+                            </Grid>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

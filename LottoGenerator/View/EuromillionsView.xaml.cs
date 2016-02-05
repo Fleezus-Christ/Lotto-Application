@@ -24,8 +24,31 @@ namespace LottoGenerator.View
 
         private void GenerateButton_OnClick(object sender, RoutedEventArgs e)
         {
-            GeneratedPickList = GeneratedPick(3);
+            GeneratedPickList = GeneratedPick(100);
             LottoList.ItemsSource = GeneratedPickList;
+        }
+
+        private void ProcessButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var winningDraw = new List<int>
+            {
+                Convert.ToInt32(Draw1.Text),
+                Convert.ToInt32(Draw2.Text),
+                Convert.ToInt32(Draw3.Text),
+                Convert.ToInt32(Draw4.Text),
+                Convert.ToInt32(Draw5.Text)
+            };
+
+            for (var i = 0; i < GeneratedPickList.Count; i++)
+            {
+                var newList = GeneratedPickList[i].NumberList.Except(winningDraw).ToList();
+                GeneratedPickList[i].MatchCount = GeneratedPickList[i].NumberList.Count() - newList.Count();
+            }            
+        }
+
+        private void LottoList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
 
         private static EuromillionViewModel GeneratePick()
@@ -49,8 +72,7 @@ namespace LottoGenerator.View
             return new EuromillionViewModel()
             {
                 NumberList = numbers,
-                NumberLuckyList = luckyNumbers,
-                MatchCount = 0
+                NumberLuckyList = luckyNumbers
             };
         }
 
@@ -62,16 +84,6 @@ namespace LottoGenerator.View
                 generatedPick.Add(GeneratePick());
             }
             return generatedPick;
-        }
-
-        private void ProcessButton_OnClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LottoList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
         }
 
         private void AcceptedTextInput(object sender, TextCompositionEventArgs e)
