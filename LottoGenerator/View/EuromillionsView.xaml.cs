@@ -43,7 +43,23 @@ namespace LottoGenerator.View
             {
                 var newList = GeneratedPickList[i].NumberList.Except(winningDraw).ToList();
                 GeneratedPickList[i].MatchCount = GeneratedPickList[i].NumberList.Count() - newList.Count();
-            }            
+            }
+
+            // sort list
+            GeneratedPickList = GeneratedPickList = GeneratedPickList.OrderByDescending(o => o.MatchCount).ToList();
+            LottoList.ItemsSource = GeneratedPickList;
+        }
+
+        private void ClearButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            LottoList.ItemsSource = new List<EuromillionViewModel>();
+            Draw1.Text = "";
+            Draw2.Text = "";
+            Draw3.Text = "";
+            Draw4.Text = "";
+            Draw5.Text = "";
+            DrawLucky1.Text = "";
+            DrawLucky2.Text = "";
         }
 
         private void LottoList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
